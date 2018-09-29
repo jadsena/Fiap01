@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Pergunta>
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>ID: @item.Id</li>
+        <li>Descricao: @item.Descricao</li>
+        <li>Autor: @item.Autor</li>
+    }
+</ul>
+
+<h1>Home</h1>
+<h1>ViewBag  = @ViewBag.Nome</h1>
+<h1>ViewData = @ViewData["NomeDoAluno"]</h1>
+
+@*<p>Classe Pergunta</p>
+<p>ID: @Model.Id</p>
+<p>Descricao: @Model.Descricao</p>
+<p>Autor: @Model.Autor</p>*@
+<p><img src="~/images.jfif" /></p>
