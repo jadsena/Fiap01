@@ -1,4 +1,5 @@
 ﻿using Fiap01.Data;
+using Fiap01.Middlewares;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -22,9 +23,30 @@ namespace Fiap01
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            #region Exemplo de middleware
+
+            //app.Use((context,next) =>
+            //{
+            //    context.Response.Headers.Add("X-Teste","headerteste");
+            //    return next();
+            //});
+            //app.Use(async (context, next) =>
+            //{
+            //    var teste = 123;
+            //    await next.Invoke();
+            //    var teste2 = 1234;
+            //});
+
+            //app.Run(async context => {
+            //    await context.Response.WriteAsync("boa noite");
+            //});
+            #endregion
+
             app.UseStaticFiles();
             if (env.IsDevelopment())
                 app.UseDeveloperExceptionPage();
+            //app.UseMiddleware<LogMiddleware>();
+            app.UseMeuLogPreza();
             app.UseMvc(routes =>
             {
                 //routes.MapRoute(
